@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* SPLASH SCREEN */
+.splash video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* NAVIGATION BAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 10px;
+    left: 10%;
+    width: 100%;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+/* Logo */
+nav .logo img {
+    width: 250px;
+    height: auto;
+}
+
+/* Vehicles Button */
+.vehicles-btn {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+/* Vehicles Icon Text */
+.vehicles-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-right: 1150px;
+}
+
+/* Vehicles Dropdown (hidden by default) */
+.vehicles-dropdown {
+    display: none;
+    position: absolute;
+    top: 60px; /* Below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    z-index: 2000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.5s ease-in-out;
+}
+
+/* Vehicle Item */
+.vehicles-dropdown .vehicle-item {
+    text-align: center;
+    width: 30%;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Vehicle Image */
+.vehicles-dropdown img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Images */
+.vehicles-dropdown .vehicle-item:hover img {
+    transform: scale(1.05);
+}
+
+.vehicles-dropdown p {
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Show the Vehicles Dropdown when Clicking */
+.vehicles-btn.active .vehicles-dropdown {
+    display: flex;
+    animation: slideDown 0.5s ease-in-out;
+}
+
+/* Hamburger Lines */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 100;
+    margin-left: auto;
+}
+
+.menu-toggle .line {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* When the = sign becomes an X */
+.menu-toggle.active .line:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px;
+}
+
+.menu-toggle.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .line:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px;
+}
+
+/* Dropdown Menu */
+ul.dropdown-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 250px;
+    height: 100vh;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    border-radius: 0 20px 20px 0;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+}
+
+ul.dropdown-menu li {
+    padding: 20px 0;
+}
+
+ul.dropdown-menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    transition: color 0.3s ease;
+}
+
+ul.dropdown-menu li a:hover {
+    color: #F1C40F;
+}
+
+ul.dropdown-menu.show {
+    display: block;
+    transform: translateX(0);
+}
+
+
+/* BACKGROUND VIDEO */
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.overlay {
+    top: 50%;
+    height: 500px;
+    right: 2%; /* Move overlay further to the right */
+    transform: translateY(-50%);
+    width: 30%;
+    max-width: 400px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjust heading */
+.overlay h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    padding-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Increase line spacing for better readability */
+.overlay p {
+    font-size: 1.5rem;
+    line-height: 2.2;
+}
+
+/* HERO SECTION */
+header.hero-section {
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+    right: -33%;
+    top: -10%;
+}
+
+/* FADING EFFECT */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header .overlay {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* CTA BUTTON */
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #FF6347;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 99, 71, 0.5);
+}
+
+.cta-button:hover {
+    background-color: #FF4500;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 99, 71, 0.7);
+}
+
+/* NAV & OVERLAY - HIDDEN INITIALLY */
+nav, .overlay {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Show nav after delay */
+nav.show, .overlay.slide-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Move overlay smoothly to the right */
+.overlay.slide-in {
+    transform: translateX(30px);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .overlay {
+        width: 80%;
+        right: 5%;
+        transform: translate(50%, -50%); /* Center horizontally */
+    }
+}
+
+    .overlay {
+        width: 80%;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+
+    .overlay h1 {
+        font-size: 2rem;
+    }
+
+    .overlay p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+
