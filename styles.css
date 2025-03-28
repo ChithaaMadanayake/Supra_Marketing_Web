@@ -19,11 +19,11 @@ body {
 
 /* NAVIGATION BAR */
 nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     top: 10px;
-    left: 10%;
     width: 100%;
     padding: 5px;
     background: rgba(0, 0, 0, 0.8);
@@ -39,6 +39,7 @@ nav .logo img {
 
 /* Vehicles Button */
 .vehicles-btn {
+    position: relative;
     font-size: 24px;
     color: white;
     cursor: pointer;
@@ -47,7 +48,7 @@ nav .logo img {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2000;
+    z-index: 3000;
 }
 
 /* Vehicles Icon Text */
@@ -69,7 +70,7 @@ nav .logo img {
     justify-content: space-around;
     flex-wrap: wrap;
     border-radius: 10px;
-    z-index: 2000;
+    z-index: 10000;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     animation: slideDown 0.5s ease-in-out;
 }
@@ -169,7 +170,7 @@ ul.dropdown-menu {
     width: 250px;
     height: 100vh;
     list-style: none;
-    padding: 20px;
+    padding: 150px;
     margin: 0;
     border-radius: 0 20px 20px 0;
     text-align: center;
@@ -186,7 +187,6 @@ ul.dropdown-menu li {
 ul.dropdown-menu li a {
     text-decoration: none;
     color: white;
-    font-size: 30px;
     transition: color 0.3s ease;
 }
 
@@ -285,7 +285,7 @@ header .overlay {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #FF6347;
+    background-color: #e41111;
     color: white;
     text-decoration: none;
     border-radius: 5px;
