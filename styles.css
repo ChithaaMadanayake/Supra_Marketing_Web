@@ -29,12 +29,15 @@ nav {
     background: rgba(0, 0, 0, 0.8);
     z-index: 1000;
     border-radius: 10px;
+    margin-top: -15px;
 }
 
 /* Logo */
 nav .logo img {
     width: 250px;
     height: auto;
+    margin-right: 10px;
+    margin-top: 8px;
 }
 
 /* Vehicles Button */
@@ -62,8 +65,8 @@ nav .logo img {
 .vehicles-dropdown {
     display: none;
     position: absolute;
-    top: 60px; /* Below the navbar */
-    left: 0;
+    top: 76px; /* Below the navbar */
+    left: -35px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -221,7 +224,8 @@ ul.dropdown-menu.show {
 
 .overlay {
     top: 50%;
-    height: 500px;
+    margin-bottom: -90px;
+    height: 630px;
     right: 2%; /* Move overlay further to the right */
     transform: translateY(-50%);
     width: 30%;
@@ -241,7 +245,7 @@ ul.dropdown-menu.show {
 .overlay h1 {
     font-size: 3rem;
     font-weight: bold;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
     line-height: 1.5;
 }
 
