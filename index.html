@@ -76,17 +76,30 @@
     </section>
 
     <!-- Car Effect Section -->
+  <!-- Background Video -->
+  <div class="background-video">
+    <video autoplay muted loop id="bg-video">
+      <source src="videos/home-bg-effect.mp4" type="video/mp4">
+    </video>
+  </div>
+
+    <!-- Car Effect Section -->
     <div id="carEffect">
-        <video id="car-video" src="videos/supra_360.mp4" autoplay loop muted></video>
+        <video id="car-video" src="videos/360_21.mp4" autoplay loop muted></video>
     </div>
 
+    <!-- Control Buttons -->
     <div id="controls">
-        <button onclick="changeColor(0)" style="background: #6d0101;">Red</button>
-        <button onclick="changeColor(240)" style="background: #130261;">Blue</button>
-        <button onclick="changeColor(120)" style="background: #133a02;">Green</button>
-        <button onclick="changeColor(300)" style="background: #510158;">Purple</button>
+        <button onclick="changeColor(0)" style="background: #6d0101;">Red</button><br>
+        <button onclick="changeColor(240)" style="background: #130261;">Blue</button><br>
+        <button onclick="changeColor(120)" style="background: #133a02;">Green</button><br>
+        <button onclick="changeColor(300)" style="background: #510158;">Purple</button><br>
     </div>
-    <div id="instructions">🖱 Drag your mouse left or right to rotate the car. Click a button to change its color.</div>
+
+    <!-- Instructions -->
+    <div id="instructions">
+        <b>🖱 Drag your mouse left or right to rotate the car. Click a button to change its color.</b>
+    </div>
 
 <script src="script.js"></script>
 </body>
