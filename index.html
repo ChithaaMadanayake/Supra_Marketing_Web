@@ -5,70 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supra | Home</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-                body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            position: relative;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 40px 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: none; /* Initially hidden */
-            transition: transform 0.3s ease;
-        }
-        footer.show {
-            display: block;
-        }
-        footer .content {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-bottom: 20px;
-        }
-        footer .content div {
-            text-align: center;
-        }
-        footer .content h4 {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        footer .content p {
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        footer .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        footer .social-links a {
-            color: #fff;
-            font-size: 18px;
-            text-decoration: none;
-        }
-        footer .social-links img {
-            width: 30px;
-            height: 30px;
-        }
-        footer .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 20px;
-            font-size: 14px;
-        }
-        /* Adding some padding to body to make sure scrolling happens */
-        .content-section {
-            height: 1500px; /* Simulate page scroll */
-        }
-    </style>
 </head>
 <body class="home">
     <section class="video-background">
@@ -88,16 +24,16 @@
                 <!-- Vehicles Dropdown, hidden by default -->
                 <div class="vehicles-dropdown">
                     <div class="vehicle-item">
-                        <img src="download.jpg" alt="Car 1">
-                        <p>Car 1 Name</p>
+                        <img src="Supra mk5.jpg" alt="Car 1">
+                        <p style="color: aqua;">Supra MK5</p>
                     </div>
                     <div class="vehicle-item">
-                        <img src="download (1).jpg" alt="Car 2">
-                        <p>Car 2 Name</p>
+                        <img src="A 90 Supra.jpg" alt="Car 2">
+                        <p style="color: aqua;">A 90 Supra</p>
                     </div>
                     <div class="vehicle-item">
                         <img src="download (2).jpg" alt="Car 3">
-                        <p>Car 3 Name</p>
+                        <p>A 90 Supra</p>
                     </div>
                 </div>
                 <div class="logo">
@@ -122,7 +58,21 @@
                 <p>Are you ready to push the limits? The Supra awaits.</p>
                 <a href="#carEffect" class="cta-button">Explore the Supra Legacy</a>
             </div>
-        </header>         
+        </header>        
+
+    <!-- Arrow image -->
+    <img src="arrow_2.png" alt="Arrow" class="arrow" id="arrow">
+
+    <!-- Banner that slides in -->
+    <div id="banner" class="banner">
+        <p><b><h1>2026 GR Supra </h1></b></p><p style="height: 70px; font-size: 50px;">&nbsp;&nbsp;|</p>
+            <p><b><h1>&nbsp;&nbsp;Starting MSRP $ 56,900* </h1></b></p><p style="height: 70px; font-size: 50px;">&nbsp;|&nbsp;&nbsp;</p>            
+            <a href="#carEffect" 
+            class="cta-button-2" 
+            style="display: inline-block; margin-top: 4px; padding: 5px 30px; background-color: #e41111; color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; box-shadow: 0 5px 15px rgba(255, 99, 71, 0.5);">
+            &nbsp;<b>Order</b>
+         </a>
+    </div>
     </section>
 
     <!-- Car Effect Section -->
@@ -137,55 +87,7 @@
         <button onclick="changeColor(300)" style="background: #510158;">Purple</button>
     </div>
     <div id="instructions">🖱 Drag your mouse left or right to rotate the car. Click a button to change its color.</div>
-    <footer id="footer">
-        <div class="content">
-            <div>
-                <h4>About</h4>
-                <p>We are passionate about bringing you the best cars and experiences.</p>
-            </div>
-            <div>
-                <h4>Contact</h4>
-                <p>Email: contact@supra.com</p>
-                <p>Phone: +1 234 567 890</p>
-                <p>Address: 123 Supra St, Speed City, USA</p>
-            </div>
-            <div>
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-                    </a>
-                    <a href="#" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
-                    </a>
-                    <a href="https://www.linkedin.com" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/LinkedIn_logo_initials.png" alt="LinkedIn">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Supra. All rights reserved.</p>
-        </div>
-    </footer>
-    <script>
-        let lastScrollTop = 0;
-        const footer = document.getElementById('footer');
 
-        window.addEventListener('scroll', function() {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (currentScroll > lastScrollTop) {
-                // Scrolling down - show the footer
-                footer.classList.add('show');
-            } else {
-                // Scrolling up - hide the footer
-                footer.classList.remove('show');
-            }
-
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll values
-        });
-    </script>
 <script src="script.js"></script>
 </body>
 </html>

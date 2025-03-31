@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supra | Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+                body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: none; /* Initially hidden */
+            transition: transform 0.3s ease;
+        }
+        footer.show {
+            display: block;
+        }
+        footer .content {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 20px;
+        }
+        footer .content div {
+            text-align: center;
+        }
+        footer .content h4 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        footer .content p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        footer .social-links a {
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        footer .social-links img {
+            width: 30px;
+            height: 30px;
+        }
+        footer .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+        /* Adding some padding to body to make sure scrolling happens */
+        .content-section {
+            height: 1500px; /* Simulate page scroll */
+        }
+    </style>
+       <footer id="footer">
+        <div class="content">
+            <div>
+                <h4>About</h4>
+                <p>We are passionate about bringing you the best cars and experiences.</p>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>Email: contact@supra.com</p>
+                <p>Phone: +1 234 567 890</p>
+                <p>Address: 123 Supra St, Speed City, USA</p>
+            </div>
+            <div>
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/LinkedIn_logo_initials.png" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Supra. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        let lastScrollTop = 0;
+        const footer = document.getElementById('footer');
+
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down - show the footer
+                footer.classList.add('show');
+            } else {
+                // Scrolling up - hide the footer
+                footer.classList.remove('show');
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll values
+        });
+    </script>

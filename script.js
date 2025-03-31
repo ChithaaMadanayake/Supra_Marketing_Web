@@ -1,3 +1,15 @@
+// Get the elements
+const arrow = document.getElementById('arrow');
+const banner = document.getElementById('banner');
+
+// Add a click event to the arrow image
+arrow.addEventListener('click', () => {
+    // Toggle the visibility of the banner by adding/removing the active class
+    banner.classList.toggle('active');
+    
+    // Rotate the arrow when clicked
+    arrow.classList.toggle('clicked');
+});
 document.addEventListener("DOMContentLoaded", function () {
     console.log('DOMContentLoaded');
 
