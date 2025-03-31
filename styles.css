@@ -79,6 +79,7 @@ nav .logo img {
     z-index: 10000;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     animation: slideDown 0.5s ease-in-out;
+
 }
 
 /* Vehicle Item */
@@ -170,7 +171,7 @@ nav .logo img {
 ul.dropdown-menu {
     display: none;
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 0;
     background: rgba(0, 0, 0, 0.9);
     width: 450px;
@@ -187,7 +188,7 @@ ul.dropdown-menu {
 }
 
 ul.dropdown-menu li {
-    padding: 20px 0;
+    padding: 60px 0;
 }
 
 ul.dropdown-menu li a {

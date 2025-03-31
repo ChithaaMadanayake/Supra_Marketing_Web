@@ -10,12 +10,15 @@ arrow.addEventListener('click', () => {
     // Rotate the arrow when clicked
     arrow.classList.toggle('clicked');
 });
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log('DOMContentLoaded');
 
     // Debug: Check if the elements are found
     const vehiclesBtn = document.querySelector('.vehicles-btn');
     const vehiclesDropdown = document.querySelector('.vehicles-dropdown');
+    const body = document.body;
+
     console.log(vehiclesBtn, vehiclesDropdown); // Check if the elements are properly selected
     
     // Vehicles dropdown toggle
@@ -26,11 +29,19 @@ document.addEventListener("DOMContentLoaded", function () {
         // Toggle the active class
         vehiclesDropdown.classList.toggle('active');
         vehiclesBtn.classList.toggle('active');
+
+        // Prevent body scrolling when dropdown is active
+        if (vehiclesDropdown.classList.contains('active')) {
+            body.style.overflow = 'hidden'; // Disable page scroll
+        } else {
+            body.style.overflow = ''; // Enable page scroll
+        }
     });
 });
-// Toggle Vehicle Dropdown
+
+// Toggle Vehicle Dropdown (Already handled above, this code may be redundant)
 const vehiclesBtn = document.querySelector('.vehicles-btn');
-vehiclesBtn.addEventListener('click', () => {
+vehiclesBtn?.addEventListener('click', () => {
     vehiclesBtn.classList.toggle('active');
 });
 
@@ -67,14 +78,16 @@ document.addEventListener("mouseup", () => {
     document.body.style.cursor = "grab";  // Revert cursor to grab
 });
 
+// Change Color function for video
 function changeColor(degrees) {
     video.style.filter = `hue-rotate(${degrees}deg)`;
 }
 
+// Smooth scroll & redirect for wheel event
 document.addEventListener("wheel", function(event) {
     if (event.deltaY > 0) {
         // Scrolling down - smooth scroll to car effect section
-        document.getElementById("#carEffect")?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById("carEffect")?.scrollIntoView({ behavior: "smooth" });
 
         // Delay redirect to allow smooth scrolling
         setTimeout(() => {
@@ -91,6 +104,7 @@ document.addEventListener("wheel", function(event) {
     }
 });
 
+// CTA Button smooth scroll & redirect
 document.addEventListener("DOMContentLoaded", function () {
     console.log('DOMContentLoaded');
 
@@ -121,6 +135,13 @@ document.addEventListener("DOMContentLoaded", function () {
     vehiclesBtn?.addEventListener('click', () => {
         vehiclesDropdown.classList.toggle('active');
         vehiclesBtn.classList.toggle('active');
+
+        // Prevent body scrolling when dropdown is active
+        if (vehiclesDropdown.classList.contains('active')) {
+            body.style.overflow = 'hidden'; // Disable page scroll
+        } else {
+            body.style.overflow = ''; // Enable page scroll
+        }
     });
 
     // Splash screen handling
