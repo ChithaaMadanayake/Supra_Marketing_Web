@@ -419,7 +419,7 @@ nav.show, .overlay.slide-in {
         text-align: center;
         margin-top: 50px;
         font-size: 20px;
-        color: rgb(5, 4, 4);
+        color: rgb(234, 224, 224);
         opacity: 0;
         animation: fadeIn 3s ease-in-out forwards;
     }
