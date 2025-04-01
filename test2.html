@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Flip Card</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 80vw;
+            height: 50vh;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            margin-right: 10px;
+        }
+
+        .carousel img:last-child {
+            margin-right: 0;
+        }
+
+        .carousel-item {
+            position: relative;
+        }
+
+        .carousel-item .reflection {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scaleY(-1);
+            box-shadow: inset 0 10px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .description {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .carousel-navigation button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-navigation button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="king.jpg" alt="Experience 1">
+                <div class="reflection"></div>
+                <div class="description">Experience 1 - Explore the world</div>
+            </div>
+            <div class="carousel-item">
+                <img src="queen.jpg" alt="Experience 2">
+                <div class="reflection"></div>
+                <div class="description">Experience 2 - Live the adventure</div>
+            </div>
+            <div class="carousel-item">
+                <img src="joker.jpg" alt="Experience 3">
+                <div class="reflection"></div>
+                <div class="description">Experience 3 - Ultimate thrill</div>
+            </div>
+        </div>
+
+        <div class="carousel-navigation">
+            <button id="prevBtn">&#9664;</button>
+            <button id="nextBtn">&#9654;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        const carousel = document.querySelector('.carousel');
+        const totalItems = document.querySelectorAll('.carousel-item').length;
+
+        // Move the carousel left or right
+        function moveCarousel() {
+            const offset = -currentIndex * (100 + 10); // 100% width + 10px margin
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Navigate to the previous item
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? totalItems - 1 : currentIndex - 1;
+            moveCarousel();
+        });
+
+        // Navigate to the next item
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex === totalItems - 1) ? 0 : currentIndex + 1;
+            moveCarousel();
+        });
+
+        // Optional: Add swipe functionality for mobile
+        let startX = 0;
+        let endX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].screenX;
+            if (startX > endX + 50) {
+                currentIndex = (currentIndex === totalItems - 1) ? 0 : currentIndex + 1;
+                moveCarousel();
+            }
+            if (startX < endX - 50) {
+                currentIndex = (currentIndex === 0) ? totalItems - 1 : currentIndex - 1;
+                moveCarousel();
+            }
+        });
+    </script>
+
+</body>
+</html>
