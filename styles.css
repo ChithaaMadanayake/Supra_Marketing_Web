@@ -563,4 +563,12 @@ html, body {
   #controls button:hover {
     opacity: 0.8;
   }
-  
+/* Logo Styling 360page*/
+#logo2 {
+    position: absolute;
+    top: 30px;    /* Adjust this value to move the logo down */
+    right: -200px;  /* Adjust this value to move the logo left/right */
+    width: 150px; /* Adjust the logo size */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1;   /* Make sure the logo is above the video */
+}
