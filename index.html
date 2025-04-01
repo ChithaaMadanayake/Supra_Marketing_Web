@@ -76,24 +76,72 @@
     </section>
 
     <!-- Car Effect Section -->
-    <body id="page-2">
+  <!-- Background Video -->
+  <div class="background-video">
+    <video autoplay muted loop id="bg-video">
+      <source src="videos/home-bg-effect.mp4" type="video/mp4">
+    </video>
+  </div>
+
+    <!-- Car Effect Section -->
     <div id="carEffect">
         <video id="car-video" src="videos/360_21.mp4" autoplay loop muted></video>
-        <img src="logo-final.png" alt="logo2" style="bottom: 500px;">
-        <span style="font-family: Engravers MT;margin-right: 30px;color: #130261;">Supra</span>
     </div>
+
     <!-- Control Buttons -->
     <div id="controls">
-        <button onclick="changeColor(0)" style="background: #6d0101;">Red</button>
-        <button onclick="changeColor(240)" style="background: #130261;">Blue</button>
-        <button onclick="changeColor(120)" style="background: #133a02;">Green</button>
-        <button onclick="changeColor(300)" style="background: #510158;">Purple</button>
+        <button onclick="changeColor(0)" style="background: #6d0101;">Red</button><br>
+        <button onclick="changeColor(240)" style="background: #130261;">Blue</button><br>
+        <button onclick="changeColor(120)" style="background: #133a02;">Green</button><br>
+        <button onclick="changeColor(300)" style="background: #510158;">Purple</button><br>
     </div>
-    </body>
 
     <!-- Instructions -->
     <div id="instructions">
         <b>🖱 Drag your mouse left or right to rotate the car. Click a button to change its color.</b>
+    </div>
+        <!-- Tarot Cards Section -->
+        <div id="tarotCardsSection">
+            <h2>Tarot Cards</h2>
+            <div class="tarot-card-container">
+                <!-- Card 1 -->
+                <div class="tarot-card" id="card1">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="card1.jpg" alt="Card 1">
+                        </div>
+                        <div class="card-back">
+                            <h3>Card 1</h3>
+                            <p>Description of Card 1 goes here. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="tarot-card" id="card2">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="card2.jpg" alt="Card 2">
+                        </div>
+                        <div class="card-back">
+                            <h3>Card 2</h3>
+                            <p>Description of Card 2 goes here. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="tarot-card" id="card3">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="card3.jpg" alt="Card 3">
+                        </div>
+                        <div class="card-back">
+                            <h3>Card 3</h3>
+                            <p>Description of Card 3 goes here. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 <script src="script.js"></script>
