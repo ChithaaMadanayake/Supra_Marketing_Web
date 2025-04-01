@@ -76,29 +76,17 @@
     </section>
 
     <!-- Car Effect Section -->
-  <!-- Background Video -->
-  <div class="background-video">
-    <video autoplay muted loop id="bg-video">
-      <source src="videos/home-bg-effect.mp4" type="video/mp4">
-    </video>
-  </div>
+    <h1>360-Degree Car Visualizer</h1>
 
-    <!-- Car Effect Section -->
-    <div id="carEffect">
-        <video id="car-video" src="videos/360_21.mp4" autoplay loop muted></video>
-    </div>
-
-    <!-- Control Buttons -->
-    <div id="controls">
-        <button onclick="changeColor(0)" style="background: #6d0101;">Red</button><br>
-        <button onclick="changeColor(240)" style="background: #130261;">Blue</button><br>
-        <button onclick="changeColor(120)" style="background: #133a02;">Green</button><br>
-        <button onclick="changeColor(300)" style="background: #510158;">Purple</button><br>
-    </div>
-
-    <!-- Instructions -->
-    <div id="instructions">
-        <b>🖱 Drag your mouse left or right to rotate the car. Click a button to change its color.</b>
+    <div class="container">
+        <!-- Container to hide top and bottom of the iframe -->
+        <div class="iframe-container">
+            <iframe src="https://carvisualizer.plus360degrees.com/threejs/"
+                    width="100%" height="100%">
+            </iframe>
+            <!-- Optionally, add a mask at the bottom -->
+            <div class="bottom-mask"></div>
+        </div>
     </div>
         <!-- Tarot Cards Section -->
         <div id="tarotCardsSection">

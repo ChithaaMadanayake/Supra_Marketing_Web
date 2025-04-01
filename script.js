@@ -45,44 +45,6 @@ vehiclesBtn?.addEventListener('click', () => {
     vehiclesBtn.classList.toggle('active');
 });
 
-// Change the Car Color
-function changeColor(hue) {
-    const carVideo = document.getElementById('car-video');
-    carVideo.style.filter = `hue-rotate(${hue}deg)`;
-}
-
-// Instructions
-document.getElementById('instructions').style.display = 'block';
-const video = document.getElementById("car-video"); 
-let isDragging = false;
-let startX = 0;
-let currentTime = 0;
-
-document.getElementById("car-video").addEventListener("mousedown", (e) => {
-    isDragging = true;
-    startX = e.clientX;
-    document.body.style.cursor = "grabbing";  // Change cursor to grabbing
-});
-
-document.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    let deltaX = e.clientX - startX;
-    currentTime += deltaX * 0.05;  // Adjust sensitivity
-    currentTime = Math.max(0, Math.min(video.duration, currentTime));  // Clamp the value
-    video.currentTime = currentTime;
-    startX = e.clientX;
-});
-
-document.addEventListener("mouseup", () => {
-    isDragging = false;
-    document.body.style.cursor = "grab";  // Revert cursor to grab
-});
-
-// Change Color function for video
-function changeColor(degrees) {
-    video.style.filter = `hue-rotate(${degrees}deg)`;
-}
-
 // Smooth scroll & redirect for wheel event
 document.addEventListener("wheel", function(event) {
     if (event.deltaY > 0) {
