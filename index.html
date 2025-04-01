@@ -76,25 +76,19 @@
     </section>
 
     <!-- Car Effect Section -->
-  <!-- Background Video -->
-  <div class="background-video">
-    <video autoplay muted loop id="bg-video">
-      <source src="videos/home-bg-effect.mp4" type="video/mp4">
-    </video>
-  </div>
-
-    <!-- Car Effect Section -->
+    <body id="page-2">
     <div id="carEffect">
         <video id="car-video" src="videos/360_21.mp4" autoplay loop muted></video>
     </div>
 
     <!-- Control Buttons -->
     <div id="controls">
-        <button onclick="changeColor(0)" style="background: #6d0101;">Red</button><br>
-        <button onclick="changeColor(240)" style="background: #130261;">Blue</button><br>
-        <button onclick="changeColor(120)" style="background: #133a02;">Green</button><br>
-        <button onclick="changeColor(300)" style="background: #510158;">Purple</button><br>
+        <button onclick="changeColor(0)" style="background: #6d0101;">Red</button>
+        <button onclick="changeColor(240)" style="background: #130261;">Blue</button>
+        <button onclick="changeColor(120)" style="background: #133a02;">Green</button>
+        <button onclick="changeColor(300)" style="background: #510158;">Purple</button>
     </div>
+    </body>
 
     <!-- Instructions -->
     <div id="instructions">
@@ -102,23 +96,5 @@
     </div>
 
 <script src="script.js"></script>
-<script>
-    // JavaScript to hide the banner when scrolling to #carEffect section
-    window.addEventListener('scroll', function() {
-        const banner = document.querySelector('#banner');
-        const carEffectSection = document.querySelector('#carEffect');
-
-        // Check if the section is in the viewport
-        const sectionPosition = carEffectSection.getBoundingClientRect();
-        
-        if (sectionPosition.top <= 0 && sectionPosition.bottom >= 0) {
-            // Hide the banner when scrolling to the #carEffect section
-            banner.style.display = 'none';
-        } else {
-            // Show the banner if not in the section
-            banner.style.display = 'block';
-        }
-    });
-</script>
 </body>
 </html>
