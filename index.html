@@ -102,5 +102,23 @@
     </div>
 
 <script src="script.js"></script>
+<script>
+    // JavaScript to hide the banner when scrolling to #carEffect section
+    window.addEventListener('scroll', function() {
+        const banner = document.querySelector('#banner');
+        const carEffectSection = document.querySelector('#carEffect');
+
+        // Check if the section is in the viewport
+        const sectionPosition = carEffectSection.getBoundingClientRect();
+        
+        if (sectionPosition.top <= 0 && sectionPosition.bottom >= 0) {
+            // Hide the banner when scrolling to the #carEffect section
+            banner.style.display = 'none';
+        } else {
+            // Show the banner if not in the section
+            banner.style.display = 'block';
+        }
+    });
+</script>
 </body>
 </html>
