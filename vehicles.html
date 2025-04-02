@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota Supra | The Iconic Sports Car Experience</title>
+    <link rel="icon" href="logo-final.png" type="image/x-icon">
+    <style>
+        /* Global reset and body styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 130vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding-top: 80px; /* Adjust padding to give space for the navbar */
+        }
+
+        /* Fullscreen video background */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Behind everything */
+        }
+
+        /* Gradient overlay on top of the video */
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+            z-index: 0; /* Overlay on top of the video */
+        }
+
+        /* Container for the gallery */
+        .container {
+            width: 80%;
+            position: relative;
+            overflow: hidden;
+            z-index: 1; /* Content above the overlay */
+            margin-top: 80px; /* Add this to give space below the navbar */
+        }
+
+/* General styling for the image gallery */
+.image-gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    position: relative;
+    width: 30%;
+    box-sizing: border-box;
+    background-color: #FFEFEF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+}
+
+/* Image styling */
+.experience-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 3px solid #FFEFEF;
+}
+
+/* Description box styling */
+.image-description {
+    padding: 20px;
+    background-color: #FFEFEF;
+    border-top: 2px solid #FFEFEF;
+    color: #333;
+}
+
+.image-title {
+    font-size: 1.8em;
+    color: #021428;
+    margin-bottom: 10px;
+}
+
+.image-details {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #555;
+}
+
+.image-details strong {
+    color: #333;
+}
+
+/* Mobile responsive styling */
+@media (max-width: 768px) {
+    .image-container {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-container {
+        width: 100%;
+    }
+}
+
+
+        /* Hover effects */
+        .experience-image:hover {
+            transform: scale(1.05); /* Slight zoom-in effect */
+            filter: blur(3px);
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+        }
+
+        /* Image reflection effect */
+        .experience-image::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            transform: scaleY(-1);
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        /* Tooltip or description hint */
+        .image-container::before {
+            content: 'Click to view description'; /* Tooltip text */
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover::before {
+            opacity: 1; /* Show tooltip on hover */
+        }
+
+
+        /* Arrows for image navigation */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        /* Description Modal */
+        .description {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Floating graphic elements */
+        .graphic-overlay {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: rotate 5s infinite linear;
+        }
+
+        /* Keyframe animation for floating circles */
+        @keyframes rotate {
+            0% { transform: translateX(-50%) rotate(0deg); }
+            100% { transform: translateX(-50%) rotate(360deg); }
+        }
+        /* NAVIGATION BAR */
+
+        nav {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            border-radius: 10px;
+        }
+        /* Logo */
+        nav .logo img {
+            width: 55px;
+            height: auto;
+            margin-right: 4px;
+            margin-top: 8px;
+        }
+
+/* Vehicles Button */
+.vehicles-btn {
+    position: relative;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    
+}
+
+/* Vehicles Icon Text */
+.vehicles-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-right: 1480px;
+}
+
+/* Vehicles Dropdown (hidden by default) */
+.vehicles-dropdown {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 76px; /* Below the navbar */
+  left: -35px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  z-index: 10000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  animation: slideDown 0.5s ease-in-out;
+}
+
+.vehicles-dropdown.active {
+  display: flex; /* Show the dropdown when the active class is added */
+}
+
+
+/* Vehicle Item */
+.vehicles-dropdown .vehicle-item {
+    text-align: center;
+    width: 30%;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Vehicle Image */
+.vehicles-dropdown img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Images */
+.vehicles-dropdown .vehicle-item:hover img {
+    transform: scale(1.05);
+}
+
+        /* Slide Down Animation */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Show the Vehicles Dropdown when Clicking */
+        .vehicles-btn.active .vehicles-dropdown {
+            display: block;
+            animation: slideDown 0.5s ease-in-out;
+            display: block;
+        }
+
+        /* Hamburger Lines */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 25px;
+            width: 30px;
+            cursor: pointer;
+            z-index: 100;
+            margin-left: 10px;
+        }
+
+        .menu-toggle .line {
+            width: 30px;
+            height: 4px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* When the = sign becomes an X */
+        .menu-toggle.active .line:nth-child(1) {
+            transform: rotate(45deg);
+            position: relative;
+            top: 8px;
+        }
+
+        .menu-toggle.active .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active .line:nth-child(3) {
+            transform: rotate(-45deg);
+            position: relative;
+            top: -8px;
+        }
+
+        /* Dropdown Menu */
+        ul.dropdown-menu {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            width: 450px;
+            height: 100vh;
+            list-style: none;
+            padding: 150px;
+            margin: 0;
+            border-radius: 0 20px 20px 0;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+
+        ul.dropdown-menu li {
+            padding: 60px 0;
+        }
+
+        ul.dropdown-menu li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        ul.dropdown-menu li a:hover {
+            color: #F1C40F;
+        }
+
+        ul.dropdown-menu.show {
+            display: block;
+            transform: translateX(0);
+        }
+        
+
+    </style>
+</head>
+</head>
+<body class="home">
+    <!-- Video background -->
+    <video class="background-video" autoplay loop muted>
+        <source src="videos/home-bg-effect.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Nav Bar -->
+    <nav>
+        <div class="menu-toggle">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <div class="vehicles-btn">
+            <span class="vehicles-icon">&nbsp;&nbsp;Vehicles</span>
+            <!-- Vehicles Dropdown, hidden by default -->
+            <div class="vehicles-dropdown">
+                <div class="vehicle-item"><a href="#image1" style="text-decoration: none; color: aqua;">
+                    <img src="Supra mk5.jpg" alt="Car 1">
+                    <p style="color: aqua; font-size: 30px;">Supra MK5</a></p>
+                </div>
+                <div class="vehicle-item"><a href="#image2" style="text-decoration: none; color: aqua;">
+                    <img src="Supra MK4.png" alt="Car 2">
+                    <p style="color: aqua; font-size: 30px;">Supra MK4</a></p>
+                </div>
+                <div class="vehicle-item"><a href="#image3" style="text-decoration: none; color: aqua;">
+                    <img src="A80 MK4.jpg" alt="Car 3">
+                    <p style="color: aqua; font-size: 30px;">A80 MK4</a></p>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="logo-final.png" alt="Logo">
+                <span style="font-family: Engravers MT;margin-right: 30px;">Supra</span>
+            </div>
+        </div>
+        <ul class="dropdown-menu" style="text-align: center;">
+            <li style="margin-bottom: 90px;"><a href="index.html"><h1>Home</h1></a></li>
+            <li style="margin-bottom: 90px;"><a href="#"><h1>About</h1></a></li>
+            <li><a href="#"><h1>Contact</h1></a></li>
+        </ul>
+    </nav>
+
+    <!-- Gradient overlay on top of the video -->
+    <div class="gradient-overlay"></div>
+
+    <!-- Image gallery -->
+    <div class="container">
+        <div class="image-gallery">
+            <div class="image-container" id="image1">
+                <img src="Supra mk5.jpg" alt="Experience 1" class="experience-image">
+                <div class="image-description">
+                    <h3 class="image-title">Supra MK5</h3>
+                    <p class="image-details">
+                        The Toyota GR Supra (MK5) is a high-performance, rear-wheel-drive sports coupe, known for its dynamic handling, powerful engine, and track-inspired design, offering a blend of performance and luxury.
+                        <br><br><strong>Key Features:</strong><br>
+                        Performance: 3.0L turbocharged engine, 382 hp, 0-60 mph in 4.2 seconds. <br>
+                        Design: Sleek exterior, driver-focused interior, and advanced tech features. <br>
+                        Safety: Forward Collision Warning, Lane Departure Warning, and more.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="image-container" id="image2">
+                <img src="Supra MK4.png" alt="Experience 2" class="experience-image">
+                <div class="image-description">
+                    <h3 class="image-title">Supra MK4</h3>
+                    <p class="image-details">
+                        The Toyota Supra MK4 (1993-2002), is a legendary sports car renowned for its powerful 2JZ engine, sleek design, and performance capabilities.
+                        <br><br><strong>Key Features:</strong><br>
+                        Engine: 3.0L inline-6 2JZ engine with twin-turbo options. <br>
+                        Performance: 320 hp, 0-100 km/h in 4.9 seconds. <br>
+                        Tuning: Known for incredible tuning potential, making it a cultural icon.<br>
+                        The MK4 Supra also became a favorite in the import tuning scene and continues to be a sought-after classic. Its performance and legendary status have made it a staple in the world of street racing.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="image-container" id="image3">
+                <img src="A80 MK4.jpg" alt="Experience 3" class="experience-image">
+                <div class="image-description">
+                    <h3 class="image-title">Supra A80</h3>
+                    <p class="image-details">
+                        The Toyota Supra A80, is a legendary sports car known for its powerful 2JZ engine, available in both naturally aspirated and twin-turbo versions, and its iconic design.
+                        <br><strong>Key Features:</strong><br>
+                        Engine: 2JZ-GE and 2JZ-GTE . <br>
+                        Performance: 320 hp, 0-60 mph in 5.2 seconds. <br>
+                        Design: Aggressive lines, iconic rear wing, and a prominent silhouette.<br>
+                        Its cultural impact has been cemented by appearances in films like "Fast & Furious," where it became synonymous with high-performance and car culture. It's also one of the most customizable cars for performance enthusiasts.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and Right Arrows -->
+        <span class="arrow left-arrow" id="left-arrow">&#10094;</span>
+        <span class="arrow right-arrow" id="right-arrow">&#10095;</span>
+    </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Select elements
+const vehiclesBtn = document.querySelector('.vehicles-btn');
+const vehiclesDropdown = document.querySelector('.vehicles-dropdown');
+
+// Vehicles dropdown toggle
+vehiclesBtn.addEventListener('click', (event) => {
+    event.stopPropagation();  // Prevent the click from propagating to the document
+    vehiclesDropdown.classList.toggle('active');
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', (event) => {
+    if (!vehiclesBtn.contains(event.target) && !vehiclesDropdown.contains(event.target)) {
+        vehiclesDropdown.classList.remove('active');
+    }
+});
+
+// Select elements
+const gallery = document.querySelector('.image-gallery');
+const images = document.querySelectorAll('.experience-image');
+const descriptionModal = document.getElementById('description-modal');
+const modalDescription = document.getElementById('modal-description');
+const closeModalBtn = document.getElementById('close-modal');
+const menuToggle = document.querySelector('.menu-toggle');
+const dropdownMenu = document.querySelector('ul.dropdown-menu');
+
+// Initial variables
+let currentIndex = 0;
+
+// Arrow navigation
+document.getElementById('left-arrow').addEventListener('click', () => moveToImage(-1));
+document.getElementById('right-arrow').addEventListener('click', () => moveToImage(1));
+
+function moveToImage(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = images.length - 1;
+    else if (currentIndex >= images.length) currentIndex = 0;
+
+    const offset = -currentIndex * (images[0].clientWidth + 30); // Adjust offset with margin
+    gallery.style.transition = 'transform 0.3s ease';
+    gallery.style.transform = `translateX(${offset}px)`;
+}
+
+// Mobile menu toggle
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    dropdownMenu.classList.toggle('show');
+});
+
+// Close modal
+closeModalBtn.addEventListener('click', () => {
+    descriptionModal.style.display = 'none';
+});
+
+// Show description when clicking an image
+images.forEach((image, index) => {
+    image.addEventListener('click', () => {
+        const description = image.getAttribute('data-description');
+        modalDescription.textContent = description;
+        descriptionModal.style.display = 'flex';
+    });
+});
+});
+
+
+</script>
+</body>
+</html>
