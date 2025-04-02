@@ -180,12 +180,18 @@
 
         .close-btn {
             background-color: red;
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.5);
             color: white;
-            padding: 10px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
+        .close-btn:hover {
+    background-color: #FF4500;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 99, 71, 0.7);
+}
         /* Floating graphic elements */
         .graphic-overlay {
             position: absolute;
@@ -227,66 +233,70 @@
             margin-top: 8px;
         }
 
-        /* Vehicles Button */
-        .vehicles-btn {
-            position: relative;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* Vehicles Button */
+.vehicles-btn {
+    position: relative;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    
+}
 
-        .vehicles-icon {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+/* Vehicles Icon Text */
+.vehicles-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-right: 1480px;
+}
 
-        /* Vehicles Dropdown (hidden by default) */
-        .vehicles-dropdown {
-            display: none;
-            position: absolute;
-            top: 76px; /* Below the navbar */
-            left: -35px;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            border-radius: 10px;
-            z-index: 10000;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
+/* Vehicles Dropdown (hidden by default) */
+.vehicles-dropdown {
+    display: none;
+    position: absolute;
+    top: 76px; /* Below the navbar */
+    left: -35px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    z-index: 10000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.5s ease-in-out;
 
-        .vehicles-dropdown .vehicle-item {
-            text-align: center;
-            width: 30%;
-            margin: 10px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-        }
+}
 
-        .vehicles-dropdown img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
+/* Vehicle Item */
+.vehicles-dropdown .vehicle-item {
+    text-align: center;
+    width: 30%;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
 
-        .vehicles-dropdown p {
-            color: white;
-            font-size: 16px;
-            margin-top: 10px;
-        }
+/* Vehicle Image */
+.vehicles-dropdown img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
 
-        /* Show the Vehicles Dropdown when Clicking */
-        .vehicles-btn.active .vehicles-dropdown {
-            display: flex;
-        }
+/* Hover Effect for Images */
+.vehicles-dropdown .vehicle-item:hover img {
+    transform: scale(1.05);
+}
 
         /* Slide Down Animation */
         @keyframes slideDown {
@@ -434,13 +444,67 @@
     <div class="container">
         <div class="image-gallery">
             <div class="image-container" id="image1">
-                <img src="A 90 Supra.png" alt="Experience 1" class="experience-image" data-description="This is the description of Experience 1">
+                <img src="Supra mk5.jpg" alt="Experience 1" class="experience-image" data-description="The Toyota GR Supra (MK5) is a high-performance, rear-wheel-drive sports coupe, known for its dynamic handling, powerful engine, and track-inspired design, offering a blend of performance and luxury. 
+                Key Features:
+Performance:
+Engine: A 3.0-liter turbocharged inline-six cylinder engine, producing 382 horsepower and 368 lb-ft of torque. 
+Transmission: Available with a six-speed manual or an eight-speed automatic transmission. 
+Handling: Short wheelbase and wide track for agile handling, with responsive variable ratio sport-tuned electric power steering and available rear adaptive variable sport-tuned suspension. 
+Acceleration: 0-60 mph in 4.2 seconds. 
+Design:
+Exterior: Long bonnet, two seats, and a double-bubble roof, paying tribute to Toyota's sports car heritage. 
+Interior: Quintessential RWD sports car interior with a letterbox-style instrument panel and a tall, wide console. 
+Technology:
+Toyota Supra Connect: Navigation, wireless Apple CarPlay® compatibility. 
+Safety: Forward Collision Warning, Lane Departure Warning, Road Sign Assist, Backup Camera, and more. 
+Other Features: Heads-Up Display, Wireless Charger, and a 12-speaker JBL Audio System. 
+Other:
+Based on: The BMW Z4. 
+Rigidity: High body rigidity achieved through the use of aluminum and steel, and high-strength joints. 
+GR Series: The first global model in the GR series. 
+Driving Modes:
+Normal, Eco, and Sport ">
             </div>
             <div class="image-container" id="image2">
-                <img src="Supra MK4.png" alt="Experience 2" class="experience-image" data-description="This is the description of Experience 2">
+                <img src="Supra MK4.png" alt="Experience 2" class="experience-image" data-description="The Toyota Supra MK4 (1993-2002), also known as the A80, is a legendary sports car renowned for its powerful 2JZ engine, sleek design, and performance capabilities, particularly the twin-turbocharged version. \
+                Here's a more detailed description:
+Engine:
+The MK4 Supra is famous for its 3.0-liter, inline-six 2JZ engine, available in both naturally aspirated (2JZ-GE) and twin-turbocharged (2JZ-GTE) configurations. 
+Performance:
+The twin-turbo model delivers up to 320 horsepower, allowing for a 0-100 km/h sprint in around 4.9 seconds and a top speed of 277 km/h. 
+Handling:
+The MK4 features a rear-wheel-drive system and a six-speed manual transmission, contributing to its agile handling and exceptional acceleration. 
+Design:
+The MK4 Supra features a sleek, aerodynamic design with a long, low bonnet line and an optional high-rise rear spoiler, making it a visually striking and powerful car. 
+Tuning Potential:
+The 2JZ engine's reliability and over-engineering make it a popular choice for tuners worldwide, leading to countless modifications and engine swaps. 
+Cultural Impact:
+The MK4 Supra has appeared in numerous films, video games, and television shows, further solidifying its status as a cultural icon and a favorite among car enthusiasts. ">
             </div>
             <div class="image-container" id="image3">
-                <img src="Supra mk5.jpg" alt="Experience 3" class="experience-image" data-description="This is the description of Experience 3">
+                <img src="A80 MK4.jpg" alt="Experience 3" class="experience-image" data-description="The Toyota Supra A80, or MK4, is a legendary sports car known for its powerful 2JZ engine, available in both naturally aspirated and twin-turbo versions, and its iconic design that made it a favorite among enthusiasts and racers alike. 
+                Key Features:
+Model: Toyota Supra (4th generation, A80). 
+Years of Production: 1993-2002. 
+Engine:
+2JZ-GE (Naturally Aspirated): 3.0-liter inline-6, offering 220 horsepower. 
+2JZ-GTE (Twin-Turbo): 3.0-liter inline-6, producing 320 horsepower. 
+Transmission: Available with a four-speed automatic or a six-speed manual (Getrag). 
+Performance:
+0-60 mph (0-100 km/h): Around 5.2 seconds. 
+Top Speed: Around 155 mph (250 km/h). 
+Design:
+A sleek, well-proportioned silhouette with a distinctive rear wing. 
+A more aggressive design compared to its predecessor. 
+Motorsports:
+Competed in the 24 Hours of Le Mans race and the Super GT GT500 class in Japan. 
+Modified Supras were successful in various racing events. 
+Legacy:
+Became a popular choice for tuning and modification, gaining fame through the Fast & Furious film franchise. 
+The 2JZ engine is known for its reliability and potential for high-performance tuning. 
+Market:
+The A80 Supra was available in the Japanese market as the second generation, while in overseas markets, it was the fourth generation. 
+The A80 Supra was removed from the Canadian market by 1996 and US markets by 1998.">
             </div>
         </div>
 
