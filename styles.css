@@ -396,7 +396,7 @@ nav.show, .overlay.slide-in {
     position: fixed;
     top: 800px; /* Same vertical position as the arrow */
     left: -100%; /* Initially off-screen to the left */
-    width: 700px; /* Width of the banner */
+    width: 800px; /* Width of the banner */
     height: 80px; /* Height of the banner */
     background-color: #000000; /* Banner color */
     color: #f5f1f1;
@@ -485,85 +485,6 @@ h2 {
     margin-bottom: 80px;
     color: #333;
 }
-
-/* Container for Tarot Cards */
-.tarot-card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    transform: rotate(-15deg);  /* Add a slight tilt to make the C-shape effect */
-    position: relative;
-}
-
-/* Tarot Card Styling */
-.tarot-card {
-    width: 200px;
-    height: 300px;
-    perspective: 1000px; /* Create perspective for the 3D flip */
-    transition: transform 0.5s ease;
-    cursor: pointer;
-}
-
-.tarot-card:hover .card-inner {
-    transform: rotateY(180deg);  /* Flip the card when hovered */
-}
-
-/* Inner part of the card */
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-}
-
-/* Front of the Card */
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-}
-
-.card-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* Back of the Card */
-.card-back {
-    background-color: #fff;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    transform: rotateY(180deg);
-}
-
-/* Adjust position of each card to form a "C" shape */
-#card1 {
-    transform: translateY(-50px) translateX(-50px);
-}
-
-#card2 {
-    transform: translateY(0px);
-}
-
-#card3 {
-    transform: translateY(50px) translateX(50px);
-}
-
-/* Card Hover Effect */
-.tarot-card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card on hover */
-}
-
 .iframe-container {
     position: relative;
     left: 50%; /* Move the iframe to the center horizontally */
@@ -589,4 +510,79 @@ iframe {
     width: 100%;
     height: 120px;  /* Adjust to the height of the bottom part to hide */
     background: rgb(0, 0, 0);  /* White background to mask the bottom part */
+}
+
+/* Style for the text container */
+.text-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out;
+    pointer-events: none; /* Allow clicks to pass through the text */
+}
+
+/* Animation for the "Toyota Supra 2002" text */
+.car-name {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    font-family: "Poppins";
+    margin-right: 20px;
+    padding: 10px 10px; /* Padding for the box around the text */
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background around the text */
+    border-radius: 5px; /* Optional: rounded corners for the box around the text */
+    display: inline-block; /* Ensure the background only surrounds the text */
+    animation: slideInFromRight 1s ease-out forwards, shadowIn 1s ease-out forwards;
+}
+
+/* Animation for the "Drag your mouse to rotate" text */
+.instruction {
+    font-size: 18px;
+    color: white;
+    margin-top: 655px;
+    animation: slideInFromLeft 1s ease-out forwards;
+    margin-left: 1540px;
+    font-family: "Roboto" ;
+}
+/* Image style inside the title */
+.car-logo {
+    width: 40px; /* Adjust size of the logo */
+    height: auto;
+    margin-right: 10px; /* Space between the image and the text */
+}
+
+/* Slide-in animation for car name (right to left) */
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%); /* Start from right */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0); /* End at original position */
+        opacity: 1;
+    }
+}
+
+/* Slide-in animation for instructions (left to right) */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%); /* Start from left */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0); /* End at original position */
+        opacity: 1;
+    }
+}
+
+/* Animation for box shadow to appear along with text */
+@keyframes shadowIn {
+    from {
+        text-shadow: 0 0 0 rgba(0, 0, 0, 0); /* No shadow at the start */
+    }
+    to {
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Visible shadow with blur effect */
+    }
 }

@@ -1,3 +1,7 @@
+// Wait for 6 seconds before displaying the text 360 car
+setTimeout(function() {
+    document.querySelector('.text-container').style.opacity = 1;
+}, 8000);
 // Get the elements
 const arrow = document.getElementById('arrow');
 const banner = document.getElementById('banner');
