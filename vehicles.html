@@ -15,7 +15,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            height: 130vh;
+            height: 125vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -54,74 +54,74 @@
             margin-top: 80px; /* Add this to give space below the navbar */
         }
 
-/* General styling for the image gallery */
-.image-gallery {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
-    flex-wrap: wrap;
-}
+        /* General styling for the image gallery */
+        .image-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
 
-.image-container {
-    position: relative;
-    width: 30%;
-    box-sizing: border-box;
-    background-color: #FFEFEF;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
+        .image-container {
+            position: relative;
+            width: 30%;
+            box-sizing: border-box;
+            background-color: #FFEFEF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-.image-container:hover {
-    transform: scale(1.05);
-}
+        .image-container:hover {
+            transform: scale(1.05);
+        }
 
-/* Image styling */
-.experience-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-bottom: 3px solid #FFEFEF;
-}
+        /* Image styling */
+        .experience-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 3px solid #FFEFEF;
+        }
 
-/* Description box styling */
-.image-description {
-    padding: 20px;
-    background-color: #FFEFEF;
-    border-top: 2px solid #FFEFEF;
-    color: #333;
-}
+        /* Description box styling */
+        .image-description {
+            padding: 20px;
+            background-color: #FFEFEF;
+            border-top: 2px solid #FFEFEF;
+            color: #333;
+        }
 
-.image-title {
-    font-size: 1.8em;
-    color: #021428;
-    margin-bottom: 10px;
-}
+        .image-title {
+            font-size: 1.8em;
+            color: #021428;
+            margin-bottom: 10px;
+        }
 
-.image-details {
-    font-size: 1em;
-    line-height: 1.5;
-    color: #555;
-}
+        .image-details {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #555;
+        }
 
-.image-details strong {
-    color: #333;
-}
+        .image-details strong {
+            color: #333;
+        }
 
-/* Mobile responsive styling */
-@media (max-width: 768px) {
-    .image-container {
-        width: 48%;
-    }
-}
+        /* Mobile responsive styling */
+        @media (max-width: 768px) {
+            .image-container {
+                width: 48%;
+            }
+        }
 
-@media (max-width: 480px) {
-    .image-container {
-        width: 100%;
-    }
-}
+        @media (max-width: 480px) {
+            .image-container {
+                width: 100%;
+            }
+        }
 
 
         /* Hover effects */
@@ -235,74 +235,74 @@
             margin-top: 8px;
         }
 
-/* Vehicles Button */
-.vehicles-btn {
-    position: relative;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3000;
-    
-}
+    /* Vehicles Button */
+    .vehicles-btn {
+        position: relative;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3000;
+        
+    }
 
-/* Vehicles Icon Text */
-.vehicles-icon {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    margin-right: 1480px;
-}
+    /* Vehicles Icon Text */
+    .vehicles-icon {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        margin-right: 1480px;
+    }
 
-/* Vehicles Dropdown (hidden by default) */
-.vehicles-dropdown {
-  display: none; /* Initially hidden */
-  position: absolute;
-  top: 76px; /* Below the navbar */
-  left: -35px;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  border-radius: 10px;
-  z-index: 10000;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  animation: slideDown 0.5s ease-in-out;
-}
+    /* Vehicles Dropdown (hidden by default) */
+    .vehicles-dropdown {
+        display: none; /* Initially hidden */
+        position: absolute;
+        top: 76px; /* Below the navbar */
+        left: -35px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        border-radius: 10px;
+        z-index: 10000;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        animation: slideDown 0.5s ease-in-out;
+    }
 
-.vehicles-dropdown.active {
-  display: flex; /* Show the dropdown when the active class is added */
-}
+    .vehicles-dropdown.active {
+    display: flex; /* Show the dropdown when the active class is added */
+    }
 
 
-/* Vehicle Item */
-.vehicles-dropdown .vehicle-item {
-    text-align: center;
-    width: 30%;
-    margin: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
+    /* Vehicle Item */
+    .vehicles-dropdown .vehicle-item {
+        text-align: center;
+        width: 30%;
+        margin: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+    }
 
-/* Vehicle Image */
-.vehicles-dropdown img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
+    /* Vehicle Image */
+    .vehicles-dropdown img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
 
-/* Hover Effect for Images */
-.vehicles-dropdown .vehicle-item:hover img {
-    transform: scale(1.05);
-}
+    /* Hover Effect for Images */
+    .vehicles-dropdown .vehicle-item:hover img {
+        transform: scale(1.05);
+    }
 
         /* Slide Down Animation */
         @keyframes slideDown {
@@ -397,7 +397,6 @@
             display: block;
             transform: translateX(0);
         }
-        
 
     </style>
 </head>
@@ -440,7 +439,7 @@
         </div>
         <ul class="dropdown-menu" style="text-align: center;">
             <li style="margin-bottom: 90px;"><a href="index.html"><h1>Home</h1></a></li>
-            <li style="margin-bottom: 90px;"><a href="#"><h1>About</h1></a></li>
+            <li style="margin-bottom: 90px;"><a href="index.html#footer"><h1>About</h1></a></li>
             <li><a href="#"><h1>Contact</h1></a></li>
         </ul>
     </nav>
