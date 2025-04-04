@@ -293,7 +293,7 @@
         display: none; /* Initially hidden */
         position: absolute;
         top: 76px; /* Below the navbar */
-        left: -35px;
+        left: 50px;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.8);
         padding: 20px;
@@ -630,34 +630,36 @@
         });
 
 
-        // Function to submit and display comments with animation
-        function submitComment() {
-            const commenterName = document.getElementById("commenterName").value;
-            const commentText = document.getElementById("commentText").value;
+// Function to submit and display comments with animation
+function submitComment() {
+    const commenterName = document.getElementById("commenterName").value;
+    const commentText = document.getElementById("commentText").value;
 
-            if (commenterName && commentText) {
-                const commentList = document.getElementById("commentList");
+    if (commenterName && commentText) {
+        const commentList = document.getElementById("commentList");
 
-                // Create a new comment item
-                const commentItem = document.createElement("div");
-                commentItem.classList.add("comment-item");
-                commentItem.innerHTML = `
-                    <strong>${commenterName}</strong>
-                    <p>${commentText}</p>
-                `;
+        // Create a new comment item
+        const commentItem = document.createElement("div");
+        commentItem.classList.add("comment-item");
+        commentItem.innerHTML = `
+            <strong>${commenterName}</strong>
+            <p>${commentText}</p>
+        `;
 
-                // Add the comment to the list with animation
-                commentList.appendChild(commentItem);
+        // Insert the new comment at the beginning of the comment list
+        commentList.insertBefore(commentItem, commentList.firstChild);
 
-                // Save the comment to localStorage
-                saveComment(commenterName, commentText);
+        // Save the comment to localStorage
+        saveComment(commenterName, commentText);
 
-                // Reset the comment form
-                document.querySelector(".comment-form").reset();
-            } else {
-                alert("Please fill all fields!");
-            }
-        }
+        // Reset the comment form
+        document.querySelector(".comment-form").reset();
+    } else {
+        alert("Please fill all fields!");
+    }
+}
+
+        
 
 
     </script>
