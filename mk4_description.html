@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toyota Supra MK4 - A Legend</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1d1d1d;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      color: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 30px;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #333333, #111111);
+      color: #ff6f61;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .title {
+      font-size: 4em;
+      font-weight: bold;
+      animation: slideIn 2s ease-out;
+    }
+
+    .subtitle {
+      font-size: 1.6em;
+      font-weight: lighter;
+      opacity: 0;
+      animation: fadeIn 3s ease-in 1s forwards;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      animation: zoomIn 1.5s ease-out;
+    }
+
+    .image-container {
+      width: 45%;
+      margin: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+    }
+
+    .image-container:hover {
+      transform: scale(1.1);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+      animation: hoverEffect 1s ease-in-out;
+    }
+
+    .car-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      transition: opacity 0.5s ease;
+    }
+
+    .car-image:hover {
+      opacity: 0.85;
+    }
+
+    .image-description {
+      width: 45%;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      margin: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .car-info-title {
+      font-size: 2.2em;
+      color: #f5f5f5;
+      margin-top: 60px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    p {
+      line-height: 1.7;
+      color: #bbb;
+      font-size: 1.1em;
+    }
+
+    button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.4s ease;
+      display: block;
+      margin: 50px auto;
+    }
+
+    button:hover {
+      background-color: #ff5c33;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      0% {
+        transform: scale(0.8);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes hoverEffect {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .image-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-container {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+
+      .image-description {
+        width: 80%;
+      }
+    }
+
+    /* Add more animations for car images */
+    .car-image {
+      animation: fadeIn 2s ease-in-out;
+    }
+            /* NAVIGATION BAR */
+
+            nav {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            border-radius: 10px;
+        }
+        /* Logo */
+        nav .logo img {
+            width: 55px;
+            height: auto;
+            margin-right: 4px;
+            margin-top: 8px;
+        }
+
+        /* Vehicles Button */
+        .vehicles-btn {
+            position: relative;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            
+        }
+
+        /* Vehicles Icon Text */
+        .vehicles-icon {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-right: 1480px;
+        }
+
+        /* Vehicles Dropdown (hidden by default) */
+        .vehicles-dropdown {
+            display: none;
+            position: absolute;
+            top: 76px; /* Below the navbar */
+            left: -35px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            border-radius: 10px;
+            z-index: 10000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            animation: slideDown 0.5s ease-in-out;
+
+        }
+
+        /* Vehicle Item */
+        .vehicles-dropdown .vehicle-item {
+            text-align: center;
+            width: 30%;
+            margin: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        /* Vehicle Image */
+        .vehicles-dropdown img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover Effect for Images */
+        .vehicles-dropdown .vehicle-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .vehicles-dropdown p {
+            color: white;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Slide Down Animation */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Show the Vehicles Dropdown when Clicking */
+        .vehicles-btn.active .vehicles-dropdown {
+            display: flex;
+            animation: slideDown 0.5s ease-in-out;
+        }
+
+        /* Hamburger Lines */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 25px;
+            width: 30px;
+            cursor: pointer;
+            z-index: 100;
+            margin-left: 10px;
+        }
+
+        .menu-toggle .line {
+            width: 30px;
+            height: 4px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* When the = sign becomes an X */
+        .menu-toggle.active .line:nth-child(1) {
+            transform: rotate(45deg);
+            position: relative;
+            top: 8px;
+        }
+
+        .menu-toggle.active .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active .line:nth-child(3) {
+            transform: rotate(-45deg);
+            position: relative;
+            top: -8px;
+        }
+
+        /* Dropdown Menu */
+        ul.dropdown-menu {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            width: 200px;
+            height: 100vh;
+            list-style: none;
+            padding: 150px;
+            margin: 0;
+            border-radius: 0 20px 20px 0;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+
+        ul.dropdown-menu li {
+            padding: 60px 0;
+        }
+
+        ul.dropdown-menu li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        ul.dropdown-menu li a:hover {
+            color: #F1C40F;
+        }
+
+        ul.dropdown-menu.show {
+            display: block;
+            transform: translateX(0);
+        }
+  </style>
+</head>
+<body class="home">
+   <!-- Nav Bar -->
+    <nav>
+        <div class="menu-toggle">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <div class="vehicles-btn">
+            <span class="vehicles-icon">&nbsp;&nbsp;Vehicles</span>
+            <!-- Vehicles Dropdown, hidden by default -->
+            <div class="vehicles-dropdown">
+                <div class="vehicle-item"><a href="mk5_description.html" style="text-decoration: none; color: aqua">
+                    <img src="Supra mk5.jpg" alt="Car 1">
+                    <p style="color: aqua; font-size: 30px; padding-top: 15px;">Supra MK5</a></p>
+                </div>
+                <div class="vehicle-item"><a href="mk4_description.html" style="text-decoration: none; color: aqua;">
+                    <img src="Supra MK4.png" alt="Car 2">
+                    <p style="color: aqua; font-size: 30px; padding-top: 15px;">Supra MK4</a></p>
+                </div>
+                <div class="vehicle-item"><a href="a80_description.html" style="text-decoration: none; color: aqua;">
+                    <img src="A80 MK4.jpg" alt="Car 3">
+                    <p style="color: aqua; font-size: 30px; padding-top: 15px;">A80 MK4</a></p>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="logo-final.png" alt="Logo">
+                <span style="font-family: Engravers MT;margin-right: 30px;">Supra</span>
+            </div>
+        </div>
+        <ul class="dropdown-menu" style="text-align: center;">
+            <li style="margin-bottom: 90px;"><a href="index.html"><h1>Home</h1></a></li>
+            <li style="margin-bottom: 90px;"><a href="index.html#footer"><h1>About</h1></a></li>
+            <li><a href="contacts.html"><h1>Contact</h1></a></li>
+        </ul>
+    </nav>
+  <header>
+    <h1 class="title">Toyota Supra MK4</h1>
+    <p class="subtitle">A Legend of the Streets</p>
+  </header>
+
+  <!-- Image Gallery Section 1 -->
+  <section class="image-gallery">
+    <!-- First Image and Description -->
+    <div class="image-container">
+      <img src="mk4-4.jpg" alt="Toyota Supra MK4" class="car-image">
+    </div>
+    <div class="image-description">
+      <h2 class="car-info-title">The Supra MK4: Unmatched Performance</h2>
+      <p>The Toyota Supra MK4, is an iconic sports car that combines high-performance engineering with legendary design. Powered by the 2JZ engine, this machine has achieved cult status in the automotive world.</p>
+      <button id="toggleText1">Show More</button>
+      <p id="moreText1" style="display: none;">The MK4 Supra was engineered with precision and perfection in mind, ensuring that it performs excellently on both the street and track. Its aerodynamics and sleek body lines make it as much a work of art as it is a technical marvel.</p>
+    </div>
+  </section>
+
+  <!-- Image Gallery Section 2 -->
+  <section class="image-gallery">
+    <!-- Second Image and Description -->
+    <div class="image-container">
+      <img src="mk4-1.jpeg" alt="Toyota Supra MK4" class="car-image">
+    </div>
+    <div class="image-description">
+      <h2 class="car-info-title">A Legacy of Tuning Potential</h2>
+      <p>The Supra MK4 is known for its exceptional tuning potential, especially with its robust 2JZ engine, making it a favorite among car enthusiasts and tuners. It can easily handle modifications that push the car to astonishing levels of horsepower.</p>
+    </div>
+  </section>
+
+  <!-- Image Gallery Section 3 -->
+  <section class="image-gallery">
+    <!-- Third Image and Description -->
+    <div class="image-container">
+      <img src="mk4-2.jpeg" alt="Toyota Supra MK4" class="car-image">
+    </div>
+    <div class="image-description">
+      <h2 class="car-info-title">Aerodynamics & Design</h2>
+      <p>The MK4 Supra's design is a perfect balance of form and function. The carefully crafted aerodynamics ensure that it cuts through the air with minimal drag, giving it excellent high-speed stability. Its iconic curves and sharp lines make it a head-turner on the road.</p>
+    </div>
+  </section>
+
+  <!-- Image Gallery Section 4 -->
+  <section class="image-gallery">
+    <!-- Fourth Image and Description -->
+    <div class="image-container">
+      <img src="mk4-3.jpg" alt="Toyota Supra MK4" class="car-image">
+    </div>
+    <div class="image-description">
+      <h2 class="car-info-title">Track-Ready Performance</h2>
+      <p>With a chassis designed for both comfort and high-speed stability, the Supra MK4 is a track-ready powerhouse. Whether it's on the street or the track, the MK4 performs at the highest level.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p style="text-align:center; padding: 20px; background: #111; color: white; position: relative; margin-bottom: 0px;">&copy; 2025 Chithaa Madanayake. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle additional description text for each photo
+    const toggleTextButton1 = document.getElementById("toggleText1");
+    const moreText1 = document.getElementById("moreText1");
+
+    toggleTextButton1.addEventListener("click", function() {
+      if (moreText1.style.display === "none") {
+        moreText1.style.display = "block";
+        toggleTextButton1.innerText = "Show Less";
+      } else {
+        moreText1.style.display = "none";
+        toggleTextButton1.innerText = "Show More";
+      }
+    });
+            // Menu Toggle Function
+            document.querySelector(".menu-toggle").addEventListener("click", function() {
+            this.classList.toggle("active"); // Toggle the hamburger icon animation
+            document.querySelector(".dropdown-menu").classList.toggle("show"); // Toggle the dropdown menu
+        });
+
+        // Vehicles Dropdown Toggle
+        document.querySelector(".vehicles-btn").addEventListener("click", function() {
+            this.classList.toggle("active"); // Toggle the vehicles button
+            const vehiclesDropdown = document.querySelector(".vehicles-dropdown");
+            vehiclesDropdown.classList.toggle("active"); // Toggle the vehicles dropdown
+        });
+        // Toggle the vehicles dropdown when the button is clicked
+        const vehiclesBtn = document.querySelector('.vehicles-btn');
+        const vehiclesDropdown = document.querySelector('.vehicles-dropdown');
+
+        vehiclesBtn.addEventListener('click', () => {
+            vehiclesDropdown.classList.toggle('active'); // Toggle active class to show/hide the dropdown
+        });
+        
+
+  </script>
+</body>
+</html>
