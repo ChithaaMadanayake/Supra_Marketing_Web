@@ -28,7 +28,6 @@ Welcome to **Supra Marketing Web**, the ultimate destination for all Toyota Supr
 ## Technologies Used
 - **HTML5** and **CSS3** for the website's structure and design.
 - **JavaScript** for interactivity and dynamic content.
-- **Bootstrap** for responsive layouts and mobile-first design.
 - **React** (optional) for creating a smooth user experience with dynamic components.
 - **Node.js** (optional) for backend server-side features (e.g., user authentication or form submissions).
 
